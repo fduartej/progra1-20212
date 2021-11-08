@@ -14,7 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using Npgsql.EntityFrameworkCore.PostgreSQL;
-
+using System.Collections;
 
 namespace frutosecoapp
 {
@@ -37,6 +37,11 @@ namespace frutosecoapp
                 options.UseNpgsql(
                     Configuration.GetConnectionString("PostgressConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
+
+            foreach(DictionaryEntry e in System.Environment.GetEnvironmentVariables())
+            {
+                Console.WriteLine(e.Key  + ":" + e.Value);
+            }
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
