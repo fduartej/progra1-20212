@@ -17,7 +17,7 @@ namespace frutosecoapp.Controllers
     {
         private readonly ApplicationDbContext _context;
         private const string URL_API_SPOTIFY = "https://api.sendgrid.com/v3/mail/send";
-        private const string ACCESS_TOKEN ="";
+        private string ACCESS_TOKEN ="";
 
 
         public ContactController(ApplicationDbContext context)
@@ -43,6 +43,7 @@ namespace frutosecoapp.Controllers
             _context.SaveChanges();
             ViewData["Message"] = "El contacto ya esta registrado";
             // ENVIO DE CORREO
+            ACCESS_TOKEN = System.Environment.GetEnvironmentVariables()["SENDGRID_KEY"].ToString();
 
 
             var httpClient = new HttpClient();
