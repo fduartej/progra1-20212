@@ -1,0 +1,40 @@
+@model demomvc.Models.Contacto
+@{
+    ViewData["Title"] = "Contacto";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="text-center">
+    <h1 class="display-4">Formulario de Contacto</h1>
+
+    <form asp-controller="Contacto" asp-action="Edit">
+        <input type="hidden" asp-for="Id" />
+
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control form-control-sm" type="text" placeholder="Escribe un nombre" aria-label=".form-control-sm" />
+
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+
+        <label asp-for="Phone" class="control-label"></label>
+        <input asp-for="Phone" class="form-control" />
+
+        <label asp-for="Comment" class="control-label"></label>
+        <input asp-for="Comment" class="form-control" />
+
+        <label asp-for="Gender" class="control-label"></label>
+        Masculino
+        <input asp-for="Gender" class="form-control" type="radio" value="M" />
+        Femenino
+        <input asp-for="Gender" class="form-control" type="radio" value="F" />
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Actualizar</button> 
+        </div>              
+    </form>
+    <h1>@ViewData["Message"]</h1>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+GET https://localhost:5001/api/productos HTTP/1.0
+Accept: application/json
+
+GET https://localhost:5001/api/productos/5 HTTP/1.0
+Accept: application/json
+
+POST https://localhost:5001/api/productos HTTP/1.0
+Content-Type: application/json
+
+{
+  "name": "product 10",
+  "descripcion": "producto 10",
+  "price": 100,
+  "imagenName": "image1.jpg",
+  "dueDate": "2022-01-01T00:00:00",
+  "status": "A"
+}
+
+POST https://api.sendgrid.com/v3/mail/send HTTP/1.0
+Authorization: Bearer CAMBIAR SU TOKEN https://app.sendgrid.com/settings/api_keys
+Content-Type: application/json
+
+{
+  "categories": [
+    "demo" CAMBIAR ES COMO UN HASHTAG
+  ],
+  "from": {
+    "email": "SU MAIL USMP", CAMBIAR https://app.sendgrid.com/settings/sender_auth
+    "name": "Frederick " CAMBIAR
+  },
+  "personalizations": [
+    {
+      "to": [
+        {
+          "email": "fduartej@gmail.com", CAMBIAR
+          "name": "Fred D" CAMBIAR
+        }
+      ],
+      "subject": "Hola" CAMBIAR
+    }
+  ],
+  "content": [
+    {
+      "type": "text/plain",
+      "value": "Hola ahora ya uso sendgrid!" CAMBIAR
+    }
+  ],  
+}
