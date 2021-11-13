@@ -57,28 +57,28 @@ namespace frutosecoapp.Controllers
   
             var jsonObject = new StringBuilder();
             jsonObject.Append("{");
-            jsonObject.Append("'categories': [");
-            jsonObject.Append("'demo' ");
+            jsonObject.Append("\"categories\": [");
+            jsonObject.Append("\"demo\" ");
             jsonObject.Append("],");
-            jsonObject.Append("'from': {");
-            jsonObject.Append("'email': 'fduartej@usmp.pe',"); 
-            jsonObject.Append("'name': 'Frederick '");
+            jsonObject.Append("\"from\": {");
+            jsonObject.Append("\"email\": \"fduartej@usmp.pe\","); 
+            jsonObject.Append("\"name\": \"Frederick \"");
             jsonObject.Append("},");
-            jsonObject.Append("'personalizations': [");
+            jsonObject.Append("\"personalizations\": [");
             jsonObject.Append("{");
-            jsonObject.Append("      'to': [");
+            jsonObject.Append("      \"to\": [");
             jsonObject.Append("        {");
-            jsonObject.Append("'email': '"+objContacto.Email+"',");
-            jsonObject.Append("'name': 'Fred D' ");
+            jsonObject.Append("\"email\": \""+objContacto.Email+"\",");
+            jsonObject.Append("\"name\": \"Fred D\" ");
             jsonObject.Append("}");
             jsonObject.Append("],");
-            jsonObject.Append("'subject': 'Hola' ");
+            jsonObject.Append("\"subject\": \"Hola\" ");
             jsonObject.Append("}");
             jsonObject.Append("],");
-            jsonObject.Append("'content': [");
+            jsonObject.Append("\"content\": [");
             jsonObject.Append("{");
-            jsonObject.Append("'type': 'text/plain',");
-            jsonObject.Append("'value': 'Hola ahora ya uso sendgrid!' ");
+            jsonObject.Append("\"type\": \"text/plain\",");
+            jsonObject.Append("\"value\": \"Hola ahora ya uso sendgrid!\" ");
             jsonObject.Append("}");
             jsonObject.Append("],  ");
             jsonObject.Append("}");
@@ -87,6 +87,7 @@ namespace frutosecoapp.Controllers
             
             var content = new StringContent(jsonObject.ToString(), Encoding.UTF8, "application/json");
             var result = await httpClient.PostAsync(URL_API_SPOTIFY, content);
+            Console.WriteLine( " result :" + result);
 
             return View();
         }
