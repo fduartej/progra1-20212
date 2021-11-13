@@ -46,7 +46,7 @@ namespace frutosecoapp.Controllers
             ACCESS_TOKEN = System.Environment.GetEnvironmentVariables()["SENDGRID_KEY"].ToString();
 
             Console.WriteLine( " token :" + ACCESS_TOKEN);
-            
+
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Accept.Add(
@@ -83,6 +83,7 @@ namespace frutosecoapp.Controllers
             jsonObject.Append("],  ");
             jsonObject.Append("}");
 
+            Console.WriteLine( " trama :" + jsonObject.ToString());
             
             var content = new StringContent(jsonObject.ToString(), Encoding.UTF8, "application/json");
             var result = await httpClient.PostAsync(URL_API_SPOTIFY, content);
