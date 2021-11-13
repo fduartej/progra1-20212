@@ -45,7 +45,8 @@ namespace frutosecoapp.Controllers
             // ENVIO DE CORREO
             ACCESS_TOKEN = System.Environment.GetEnvironmentVariables()["SENDGRID_KEY"].ToString();
 
-
+            Console.WriteLine( " token :" + ACCESS_TOKEN);
+            
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Accept.Add(
